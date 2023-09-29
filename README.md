@@ -5,7 +5,7 @@
 ![MIT License](https://img.shields.io/badge/license-MIT_License-purple)
 
 ## Description
-A social network API, allowing for the management of user accounts, as well as their thoughts and reactions to other users' thoughts.
+A social network API, allowing for the management of user accounts, as well as users' thoughts and reactions to other users' thoughts.
 
 ## License
 All assets and code are under MIT License unless specified otherwise.
