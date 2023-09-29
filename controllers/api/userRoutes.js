@@ -68,3 +68,46 @@ router.delete('/:userId', async (req, res) => {
   }
 });
 
+// POST to add a new friend to a user's friend list
+router.post('/:userId/friends/:friendId', async (req, res) => {
+  try {
+    const friend = await User.find({ _id: req.params.friendId });
+
+    if ( !friend ) {
+      res.status(404).json({ message: 'No friend found with that ID '});
+    }
+
+    const user = await User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      { runValidators: true, new: true }
+    );
+
+    if (!user) {
+      res.status(404).json({ message: 'No user found with that ID' });
+    }
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// DELETE to remove a friend from a user's friend list
+router.delete('/:userId/friends/:friendId', async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: { _id: req.params.friendId } } },
+      { runValidators: true, new: true }
+    );
+
+    if (!user) {
+      res.status(404).json({ message: 'No user found with that ID' });
+    }
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
