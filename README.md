@@ -8,7 +8,7 @@
 A social network API, allowing for the management of user accounts, as well as users' thoughts and reactions to other users' thoughts.
 
 ## Video Walkthrough
-![Video Link](https://drive.google.com/file/d/1e3IqtbiP6FHoVJ6EpvJs7HupWkv29I_b/view)
+[Video Link](https://drive.google.com/file/d/1e3IqtbiP6FHoVJ6EpvJs7HupWkv29I_b/view)
 
 ## License
 All assets and code are under MIT License unless specified otherwise.
