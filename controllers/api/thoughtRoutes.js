@@ -94,6 +94,7 @@ router.post('/:thoughtId/reactions', async (req, res) => {
 // DELETE to pull and remove a reaction by the reaction's reactionId value
 router.delete('/:thoughtId/reactions', async (req, res) => {
   try {
+
     const thoughtReaction = await Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { _id: req.body._id } } },
